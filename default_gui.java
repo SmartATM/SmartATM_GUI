@@ -10,13 +10,14 @@ public class default_gui extends JFrame implements ActionListener {
     JFrame mainFrame;
     private JLabel inputAmountLabel;
     private JPanel uiScreenPanel;
+    private JPanel moneyOutletPanel;
     JButton startButton;
 
     public default_gui(){
         //cardLayout = new CardLayout(10,10);
         uiScreenPanel = new JPanel();
 
-        mainFrame= new JFrame(); //f라는 Frame 생성
+        mainFrame= new JFrame();
 
         mainFrame.setTitle("스마트 지폐교환기"); //창제목을 설정
         mainFrame.setBounds(150, 50, 900, 700); //창크기를 설정
@@ -52,7 +53,7 @@ public class default_gui extends JFrame implements ActionListener {
         machinePanel.setBorder(new LineBorder(Color.black,10,true));
 
 
-        JPanel moneyOutletPanel = new JPanel();
+        moneyOutletPanel = new JPanel();
         moneyOutletPanel.setBounds(50,280,500,100);
         moneyOutletPanel.setBackground(Color.gray);
         machinePanel.add(moneyOutletPanel);
@@ -121,6 +122,8 @@ public class default_gui extends JFrame implements ActionListener {
             //리셋
             mainFrame.dispose();
             default_gui newGui = new default_gui();
+            JPanel returnForReset = newGui.getMoneyOutletPanel();
+            //여기에 돈 반환코드 추가
         } else {
             //돈 버튼 클릭
             changeInputAmout(btn.getText());
@@ -141,5 +144,9 @@ public class default_gui extends JFrame implements ActionListener {
 
     public JLabel getInputAmountLabel(){
         return inputAmountLabel;
+    }
+
+    public JPanel getMoneyOutletPanel(){
+        return moneyOutletPanel;
     }
 }

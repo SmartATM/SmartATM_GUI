@@ -9,7 +9,8 @@ public class gui_result extends JFrame {
         default_gui defaultGui = new default_gui();
 
         JPanel uiScreenPanel = defaultGui.getUIScreenPanel();
-
+        JPanel moneyOutletPanel = defaultGui.getMoneyOutletPanel();
+        moneyOutletPanel.setLayout(null);
         JButton startButton = defaultGui.getStartButton();
         startButton.setEnabled(false);
         startButton.setVisible(false);
@@ -22,17 +23,26 @@ public class gui_result extends JFrame {
         defaultGui.getInputAmountLabel().setText(inputAmount);
 
         for(int i=0;i<resultHashMap.size();i++){
-            JLabel resultLabel = new JLabel();
+            JLabel receitLabel = new JLabel();
             if(resultHashMap.get(cashList.get(i)).equals("")){
                 resultHashMap.put(cashList.get(i),"0");
             }
+            receitLabel.setText(cashList.get(i)+" : "+resultHashMap.get(cashList.get(i))+"개");
+            receitLabel.setBounds(200,i*30+70,100,30);
+            uiScreenPanel.add(receitLabel);
+
+            // 투출구
+            JLabel resultLabel = new JLabel();
             resultLabel.setText(cashList.get(i)+" : "+resultHashMap.get(cashList.get(i))+"개");
-            resultLabel.setBounds(200,i*30+70,100,30);
-            uiScreenPanel.add(resultLabel);
+            resultLabel.setBounds(200,i*20+10,100,20);
+            moneyOutletPanel.add(resultLabel);
+
         }
 
         uiScreenPanel.revalidate();
         uiScreenPanel.repaint();
+        moneyOutletPanel.revalidate();
+        moneyOutletPanel.repaint();
 
 
     }

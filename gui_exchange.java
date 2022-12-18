@@ -139,6 +139,7 @@ public class gui_exchange extends JFrame implements ActionListener {
             Integer calculatedAmount = calculateRequestCashAmount(quantity1, quantity2, quantity3, quantity4);
             Integer amountInt = Integer.valueOf(inputAmountLabel.getText());
 
+            // 금액 동일
             if(calculatedAmount.equals(amountInt)){
                 quantityTextField1.setText("");
                 quantityTextField2.setText("");
