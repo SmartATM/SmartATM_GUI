@@ -30,6 +30,9 @@ public class gui_exchange extends JFrame implements ActionListener {
 
         mainFrame= defaultGui.getMainFrame();
 
+        //돈버튼 비활성화 해야하는데,
+        //버튼의 개수&종류를 하나하나ㅏ 다받아오지 않는 방법 -> factory 활용? 필요
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel uiScreenPanel = defaultGui.getUIScreenPanel();
