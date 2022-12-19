@@ -137,16 +137,6 @@ public class default_gui extends JFrame implements ActionListener {
         }*/
     }
 
-
-    public static void changeInputAmout(String newInput, JLabel inputAmountLabel ){
-        int prevAmount = Integer.parseInt(inputAmountLabel.getText());
-        int currAmount = prevAmount + Integer.parseInt(newInput);
-
-        inputAmountLabel.setText(String.valueOf(currAmount));
-
-    }
-
-
     public JPanel getUIScreenPanel(){
         return uiScreenPanel;
     }
