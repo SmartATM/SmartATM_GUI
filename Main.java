@@ -1,6 +1,9 @@
 package org.example;
 
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 public class Main {
@@ -24,4 +27,15 @@ public class Main {
             //GUI.changeUIScreen(3);
         }
     }
+
+
+    public static void changeInputAmout(String newInput, JLabel inputAmountLabel){
+        int prevAmount = Integer.parseInt(inputAmountLabel.getText());
+        int currAmount = prevAmount + Integer.parseInt(newInput);
+
+        inputAmountLabel.setText(String.valueOf(currAmount));
+
+    }
+
+
 }
