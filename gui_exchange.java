@@ -15,6 +15,10 @@ public class gui_exchange extends JFrame implements ActionListener {
     JTextField quantityTextField2;
     JTextField quantityTextField3;
     JTextField quantityTextField4;
+    JTextField quantityTextField5;
+    JTextField quantityTextField6;
+    JTextField quantityTextField7;
+    JTextField quantityTextField8;
     JLabel inputForExchangeLabel;
     JLabel inputAmountLabel;
     JLabel warningLabel;
@@ -64,6 +68,23 @@ public class gui_exchange extends JFrame implements ActionListener {
         quantityTextField4.setBounds(110, 150, 50, 30);
         uiScreenPanel.add(quantityTextField4);
 
+
+        quantityTextField5 = new JTextField();
+        quantityTextField5.setBounds(230, 60, 50, 30);
+        uiScreenPanel.add(quantityTextField5);
+
+        quantityTextField6 = new JTextField();
+        quantityTextField6.setBounds(230, 90, 50, 30);
+        uiScreenPanel.add(quantityTextField6);
+
+        quantityTextField7 = new JTextField();
+        quantityTextField7.setBounds(230, 120, 50, 30);
+        uiScreenPanel.add(quantityTextField7);
+
+        quantityTextField8 = new JTextField();
+        quantityTextField8.setBounds(230, 150, 50, 30);
+        uiScreenPanel.add(quantityTextField8);
+
         warningLabel = new JLabel();
         warningLabel.setText("0만큼 금액이 부족합니다!");
         warningLabel.setName("warningLabel");
@@ -74,7 +95,7 @@ public class gui_exchange extends JFrame implements ActionListener {
         JButton exchangeConfirmButton = new JButton();
         exchangeConfirmButton.setBounds(400, 180, 80, 40);
         exchangeConfirmButton.setText("교환");
-        exchangeConfirmButton.addActionListener(this);
+        exchangeConfirmButton.addActionListener(guiListener);
         uiScreenPanel.add(exchangeConfirmButton);
 
         JButton startButton = defaultGui.getStartButton();
@@ -87,9 +108,15 @@ public class gui_exchange extends JFrame implements ActionListener {
 
 
         //돈 종류 만큼 label 생성
-        for (int i = 0; i < list.size(); i++) {
+        for (int i = 0; i < list.size()/2; i++) {
             JLabel tempLabel = new JLabel(list.get(i));
             tempLabel.setBounds(60, i * 30 + 60, 50, 30);
+            tempLabel.setName("tempLabel");
+            uiScreenPanel.add(tempLabel);
+        }
+        for (int i = list.size()/2; i < list.size(); i++) {
+            JLabel tempLabel = new JLabel(list.get(i));
+            tempLabel.setBounds(180, (i-(list.size()/2)) * 30 + 60, 50, 30);
             tempLabel.setName("tempLabel");
             uiScreenPanel.add(tempLabel);
         }
@@ -101,6 +128,10 @@ public class gui_exchange extends JFrame implements ActionListener {
         list.add("10000");
         list.add("5000");
         list.add("1000");
+        list.add("500");
+        list.add("100");
+        list.add("50");
+        list.add("10");
     }
 
     //요
@@ -125,6 +156,8 @@ public class gui_exchange extends JFrame implements ActionListener {
             return "0";
         else return input;
     }
+
+    ActionListener guiListener = new GUIActionListener(this);
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -177,4 +210,37 @@ public class gui_exchange extends JFrame implements ActionListener {
         }
 
     }
+
+    public List<String> passExchangeRequestData(){
+        List<String> exchangeRequestList = new ArrayList<>();
+        String quantity1 = quantityTextField1.getText();
+        String quantity2 = quantityTextField2.getText();
+        String quantity3 = quantityTextField3.getText();
+        String quantity4 = quantityTextField4.getText();
+        String quantity5 = quantityTextField5.getText();
+        String quantity6 = quantityTextField6.getText();
+        String quantity7 = quantityTextField7.getText();
+        String quantity8 = quantityTextField8.getText();
+
+
+        exchangeRequestList.add(quantity1);
+        exchangeRequestList.add(quantity2);
+        exchangeRequestList.add(quantity3);
+        exchangeRequestList.add(quantity4);
+        exchangeRequestList.add(quantity5);
+        exchangeRequestList.add(quantity6);
+        exchangeRequestList.add(quantity7);
+        exchangeRequestList.add(quantity8);
+
+        return exchangeRequestList;
+    }
+
+    public JLabel getInputAmountLabel(){
+        return inputAmountLabel;
+    }
+
+    public JTextField getQuantityTextField1(){
+        return quantityTextField1;
+    }
+
 }

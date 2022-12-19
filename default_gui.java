@@ -84,7 +84,7 @@ public class default_gui extends JFrame implements ActionListener {
         resetButton.setText("reset");
         resetButton.setBounds(700,300,80,80);
         resetButton.setBorder(new LineBorder(Color.black,2,true));
-        resetButton.addActionListener(this);
+        resetButton.addActionListener(guiListener);
         machinePanel.add(resetButton);
 
         mainFrame.add(machinePanel);
@@ -101,7 +101,7 @@ public class default_gui extends JFrame implements ActionListener {
         startButton.setText("교환하기");
         startButton.setBackground(Color.white);
         startButton.setBounds(200, 100, 100, 40);
-        startButton.addActionListener(this);
+        startButton.addActionListener(guiListener);
         uiScreenPanel.add(startButton);
 
     }
@@ -121,7 +121,7 @@ public class default_gui extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton btn = (JButton) e.getSource();
-        if(btn.getText().equals("교환하기")){
+        /*if(btn.getText().equals("교환하기")){
             mainFrame.dispose();
             // 교환 화면으로 전환
             gui_exchange exchangeGui = new gui_exchange(inputAmountLabel.getText());
@@ -134,8 +134,18 @@ public class default_gui extends JFrame implements ActionListener {
         } else {
             //돈 버튼 클릭
             //changeInputAmout(btn.getText());
-        }
+        }*/
     }
+
+
+    public static void changeInputAmout(String newInput, JLabel inputAmountLabel ){
+        int prevAmount = Integer.parseInt(inputAmountLabel.getText());
+        int currAmount = prevAmount + Integer.parseInt(newInput);
+
+        inputAmountLabel.setText(String.valueOf(currAmount));
+
+    }
+
 
     public JPanel getUIScreenPanel(){
         return uiScreenPanel;
