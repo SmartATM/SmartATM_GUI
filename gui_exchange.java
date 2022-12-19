@@ -223,14 +223,14 @@ public class gui_exchange extends JFrame implements ActionListener {
         String quantity8 = quantityTextField8.getText();
 
 
-        exchangeRequestList.add(quantity1);
-        exchangeRequestList.add(quantity2);
-        exchangeRequestList.add(quantity3);
-        exchangeRequestList.add(quantity4);
-        exchangeRequestList.add(quantity5);
-        exchangeRequestList.add(quantity6);
-        exchangeRequestList.add(quantity7);
-        exchangeRequestList.add(quantity8);
+        exchangeRequestList.add(nullToZero(quantity1));
+        exchangeRequestList.add(nullToZero(quantity2));
+        exchangeRequestList.add(nullToZero(quantity3));
+        exchangeRequestList.add(nullToZero(quantity4));
+        exchangeRequestList.add(nullToZero(quantity5));
+        exchangeRequestList.add(nullToZero(quantity6));
+        exchangeRequestList.add(nullToZero(quantity7));
+        exchangeRequestList.add(nullToZero(quantity8));
 
         return exchangeRequestList;
     }
